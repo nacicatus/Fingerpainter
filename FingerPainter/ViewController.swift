@@ -52,16 +52,20 @@ class ViewController: UIViewController {
             width: canvas.frame.size.width, height: canvas.frame.size.height))
         
         // draw the new line segment
-        CGContext.setLineWidth(context, 5)
-        CGContext.setStrokeColor(context?.setStrokeColor(UIColor.magenta.cgColor))
+//        CGContext.setLineWidth(context(5))
+//        CGContext.setStrokeColor(context?.setStrokeColor(UIColor.magenta.cgColor))
         
+//        CGContext.beginPath(context!)
+//        CGContext.move(to: start.x, start.y)
+//        CGContext.addLine(to: context, end.x, end.y)
+//        CGContext.strokePath((context ?? nil)!)
         
 //        CGContextSetLineWidth(context, 5)
 //        CGContextSetStrokeColorWithColor(context, UIColor.magentaColor().CGColor)
-        CGContextBeginPath(context)
-        CGContextMoveToPoint(context, start.x, start.y)
-        CGContextAddLineToPoint(context, end.x, end.y)
-        CGContextStrokePath(context)
+        // CGContextBeginPath(context)
+        // CGContextMoveToPoint(context, start.x, start.y)
+        //CGContextAddLineToPoint(context, end.x, end.y)
+        //CGContext.strokePath(context()
         
         // obtain a UIImage object from the context
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
