@@ -44,18 +44,25 @@ class ViewController: UIViewController {
     
     func drawFromPoint(start: CGPoint, toPoint end: CGPoint) {
         // set the context to that of an image
-        UIGraphicsBeginImageContext(canvas.frame.size)
+       UIGraphicsBeginImageContext(canvas.frame.size)
+       
         let context = UIGraphicsGetCurrentContext()
         // draw the existing image onto the current context
-        canvas.image?.drawInRect(CGRect(x: 0, y: 0,
+        canvas.image?.draw(in: CGRect(x: 0, y: 0,
             width: canvas.frame.size.width, height: canvas.frame.size.height))
+        
         // draw the new line segment
-        CGContextSetLineWidth(context, 5)
-        CGContextSetStrokeColorWithColor(context, UIColor.magentaColor().CGColor)
+        CGContext.setLineWidth(context, 5)
+        CGContext.setStrokeColor(context?.setStrokeColor(UIColor.magenta.cgColor))
+        
+        
+//        CGContextSetLineWidth(context, 5)
+//        CGContextSetStrokeColorWithColor(context, UIColor.magentaColor().CGColor)
         CGContextBeginPath(context)
         CGContextMoveToPoint(context, start.x, start.y)
         CGContextAddLineToPoint(context, end.x, end.y)
         CGContextStrokePath(context)
+        
         // obtain a UIImage object from the context
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
