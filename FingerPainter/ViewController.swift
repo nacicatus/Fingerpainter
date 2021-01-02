@@ -32,6 +32,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let end = touch.location(in: view)
@@ -52,20 +54,12 @@ class ViewController: UIViewController {
             width: canvas.frame.size.width, height: canvas.frame.size.height))
         
         // draw the new line segment
-//        CGContext.setLineWidth(context(5))
-//        CGContext.setStrokeColor(context?.setStrokeColor(UIColor.magenta.cgColor))
-        
-//        CGContext.beginPath(context!)
-//        CGContext.move(to: start.x, start.y)
-//        CGContext.addLine(to: context, end.x, end.y)
-//        CGContext.strokePath((context ?? nil)!)
-        
-//        CGContextSetLineWidth(context, 5)
-//        CGContextSetStrokeColorWithColor(context, UIColor.magentaColor().CGColor)
-        // CGContextBeginPath(context)
-        // CGContextMoveToPoint(context, start.x, start.y)
-        //CGContextAddLineToPoint(context, end.x, end.y)
-        //CGContext.strokePath(context()
+        context!.setLineWidth(5)
+        context?.setStrokeColor(UIColor.magenta.cgColor)
+        context?.beginPath()
+        context?.move(to: start)
+        context?.addLine(to: end)
+        context?.strokePath()
         
         // obtain a UIImage object from the context
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
